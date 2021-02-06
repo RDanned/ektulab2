@@ -1,0 +1,186 @@
+@import "./fonts.css";
+
+:root{
+    --dark-grey: rgb(180, 180, 180);
+    --light-grey: rgb(238, 238, 238);
+    --headers-color: rgb(97, 97, 97);
+}
+
+* {
+    font-family: 'Lucida Sans Unicode', Verdana, sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+h3 {
+    text-transform: uppercase;
+    margin: 0;
+    font-weight: normal;
+}
+
+a {
+    color: black;
+}
+
+.portfolio {
+    width: 960px;
+    margin: 40px auto;
+    padding: 35px 0;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.portfolio__wrapper {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.portfolio__menu ul{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: space-evenly;
+}
+
+.portfolio__menu a {
+    text-decoration: none;
+    transition: all 0.5 ease-in-out;
+    padding: 10px 15px;
+    position: relative;
+}
+
+.portfolio__menu a::after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: var(--dark-grey);
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+
+.portfolio__menu a:hover:after {
+    width: 100%; 
+    left: 0;
+}
+
+.portfolio__content {
+    width: 60%;
+}
+
+.portfolio__creds {
+    width: 40%;
+    position: relative;
+    margin: 0 20px;
+}
+
+.portfolio__header {
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.portfolio__name {
+    text-transform: uppercase;
+    position: relative;
+}
+
+.portfolio__name::after{
+    content: "";
+    width: 120px;
+    height: 2px;
+    background-color: var(--dark-grey);
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.portfolio__position {
+    font-style: italic;
+}
+
+.portfolio h2 {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 40px;
+    color: var(--headers-color);
+}
+
+.portfolio__contacts {
+    background: var(--light-grey);
+    height: 295px;
+    margin-top: 150px;
+    padding: 130px 20px 0;
+}
+
+.portfolio__creds ul{
+    list-style: none;
+}
+
+.portfolio__photo {
+    width: 250px;
+    position: absolute;
+    left: 50%;
+    top: 150px;
+    transform: translate(-50%, -50%);
+}
+
+.portfolio__photo img {
+    max-width: 100%;
+    border-radius: 50%;
+    border: 5px solid white;
+}
+
+.portfolio__contacts ul li {
+    margin-bottom: 10px;
+}
+
+.contact__icon {
+    width: 20px;
+    font-size: 1.5em;
+    color: rgb(66, 66, 66);
+}
+
+.portfolio__education {
+    margin-left: 20px
+}
+
+.portfolio__education ul {
+    padding-left: 0;
+}
+
+.portfolio__skills {
+    margin-left: 20px;
+}
+
+.skills__item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.skill__name {
+    width: 200px;
+}
+
+.skill__rate {
+    height: 16px;
+    width: 80px;
+    background: url(/assets/img/rate.png);
+    background-size: 80px;
+    background-repeat: no-repeat;
+}
+
+.skill__rate-1 {width: 15px;}
+
+.skill__rate-2 {width: 30px;}
+
+.skill__rate-3 {width: 47px;}
+
+.skill__rate-4 {width: 65px;}
+
+.skill__rate-5 {width: 80px;}
