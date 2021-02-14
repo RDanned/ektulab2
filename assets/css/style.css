@@ -26,21 +26,19 @@ a {
 
 .portfolio {
     width: 960px;
-    margin: 40px auto;
-    padding: 35px 0;
+    /* margin: 40px auto; */
+    padding: 35px 20px;
+    margin-left: auto;
+    margin-right: auto;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
-.portfolio__wrapper {
-    display: flex;
-    flex-direction: row-reverse;
+.portfolio .container-fluid {
+    padding: 0;
 }
 
 .portfolio__menu ul{
-    display: flex;
-    flex-direction: row;
     list-style: none;
-    justify-content: space-evenly;
 }
 
 .portfolio__menu a {
@@ -68,14 +66,8 @@ a {
     left: 0;
 }
 
-.portfolio__content {
-    width: 60%;
-}
-
 .portfolio__creds {
-    width: 40%;
     position: relative;
-    margin: 0 20px;
 }
 
 .portfolio__header {
