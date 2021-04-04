@@ -133,6 +133,27 @@
 		</div>
 		</div>
 	</main>
-</body>
 
+	<script>
+			document.addEventListener("DOMContentLoaded", async (event) => { 
+				let response = await fetch('/description/');
+				response.json().then(res => document.querySelector('.portfolio__desc').innerHTML = res.data)
+
+				document.querySelector('.portfolio__skills').innerHTML = "";
+				document.querySelector('.portfolio__skills').innerHTML += `<h2 id="skills">Skills</h2>`;
+				response = await fetch('/skills/');
+				response.json().then(res => res.data.map((skill) => document.querySelector('.portfolio__skills').innerHTML += 
+				/*html*/
+				`
+				<div class="skills__item">
+					<div class="skill__name">${skill.name}</div>
+					<div class="skill__rate skill__rate-${skill.value}"></div>
+				</div>
+				`
+				));
+			});
+	</script>
+
+
+</body>
 </html>
