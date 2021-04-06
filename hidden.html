@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Document</title>
+	<link rel="stylesheet" href="/assets/lib/bootstrap-5.0.0-beta2/css/bootstrap-grid.css">
+	<link rel="stylesheet" href="/assets/css/style.css" />
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+		integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+</head>
+
+<body>
+	<main class="portfolio">
+		<div class="container-fluid">
+			<h1>Hidden content</h1>
+            <div class="div">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur harum rem dolore? Eaque molestias vero, praesentium dicta, commodi nam veniam architecto distinctio enim ea a perferendis assumenda, repudiandae quasi possimus debitis alias? Quasi dolorum accusamus fugit laudantium iusto corrupti sed beatae illum hic? Totam voluptatum, tempora beatae recusandae aut facere cumque! Maxime labore sapiente non voluptate, magni, atque tempore ipsum repudiandae sequi, facilis perspiciatis nihil cumque facere! Rerum commodi ullam placeat voluptatem asperiores, unde illo dicta expedita porro voluptates, harum ab, debitis nisi obcaecati dolorem quisquam labore enim eos? Molestias numquam ea dicta odit tenetur quam rerum incidunt corrupti veritatis dolorem.
+            </div>
+		</div>
+		</div>
+	</main>
+
+	<script>
+			document.addEventListener("DOMContentLoaded", async (event) => { 
+				let response = await fetch('/description/');
+				response.json().then(res => document.querySelector('.portfolio__desc').innerHTML = res.data)
+
+				document.querySelector('.portfolio__skills').innerHTML = "";
+				document.querySelector('.portfolio__skills').innerHTML += `<h2 id="skills">Skills</h2>`;
+				response = await fetch('/skills/');
+				response.json().then(res => res.data.map((skill) => document.querySelector('.portfolio__skills').innerHTML += 
+				/*html*/
+				`
+				<div class="skills__item">
+					<div class="skill__name">${skill.name}</div>
+					<div class="skill__rate skill__rate-${skill.value}"></div>
+				</div>
+				`
+				));
+			});
+	</script>
+
+
+</body>
+</html>

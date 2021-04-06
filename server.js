@@ -1,6 +1,11 @@
 var express = require('express');
 var app = express();
+const morgan = require('morgan');
+const http = require('http');
+const auth = require('./auth');
 
+//app.use(auth);
+app.use(morgan('dev'));
 app.get('/skills/', function(req, res){
     let skills = {data: [
         {
@@ -32,7 +37,9 @@ app.get('/skills/', function(req, res){
 });
 
 app.get('/description/', function (req, res){
-    res.json({data: `
+    res.json({data: 
+        /*html*/
+        `
         <h2 id="profile">Profile(from server)</h2>
         <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
@@ -62,6 +69,12 @@ app.get('/', function (req, res) {
     var path = require('path');
     res.sendFile(path.join(__dirname + '/index.html'));
 });
+
+app.get('/hidden', auth, function (req, res) {
+    var path = require('path');
+    res.sendFile(path.join(__dirname + '/hidden.html'));
+});
+
 
 app.use(express.static(__dirname + '/'));
 
